@@ -7,7 +7,7 @@ from random import randint
 #Start Pygame
 pygame.init()
 
-#Variables
+#Variables.
 SCREEN_WIDTH = 780
 SCREEN_HEIGHT = 720
 FRAMERATE = 60

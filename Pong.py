@@ -12,6 +12,7 @@ SCREEN_WIDTH = 780
 SCREEN_HEIGHT = 720
 FRAMERATE = 60
 score = [0,0]
+BG = pygame.image.load("assets/pongBG.jpg")
 
 #Create screen, clock, and name window.
 DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
@@ -63,6 +64,18 @@ def checkPoint(x):
         pongball.yspeed = randomNumber(3,5)
         pongball.pause = 2 * FRAMERATE
 
+def checkWin(s):
+    if(s[0] == 5 or s[1] == 5):
+        handleWin()
+
+def handleWin(pause):
+    while pause:
+        # Print box for "Quit" and "Play again"
+        end = True
+        if end == True:
+            pygame.quit()
+            sys.exit()
+        
 
 # Game Loop
 while True:
@@ -78,7 +91,7 @@ while True:
     pongball.move(pongball.xpos, pongball.ypos, pongball.xspeed, pongball.yspeed, paddle2, paddle1)
     
     # Drawing screen
-    DISPLAYSURF.fill((0,0,0))
+    DISPLAYSURF.blit(BG, (0,0))
     
     
     # Draw ball and paddles
@@ -88,6 +101,7 @@ while True:
 
     # Check for a point
     checkPoint(pongball.xpos)
+    checkWin(score)
 
     # Update display and tick clock.
     pygame.display.update()

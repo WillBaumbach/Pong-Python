@@ -2,14 +2,14 @@ import pygame, sys
 from pygame.locals import *
 from Paddle import *
 from Ball import *
-from Score import *
+from Scorer import *
 from random import randint
 
 #Start Pygame
 pygame.init()
 pygame.font.init()
 running = True
-limit = 5
+limit = 1
 
 #Variables.
 SCREEN_WIDTH = 780
@@ -24,7 +24,7 @@ pygame.display.set_caption('PONG')
 clock = pygame.time.Clock()
 
 # Create the scorer
-scorer = Scorer()
+scorer = Score()
 
 # Create the Paddles(x,y,length,width,speed,playernumber).
 paddle2 = Paddle(20, 10, 100, 20, 10, 2)
